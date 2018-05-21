@@ -1,4 +1,4 @@
-package org.spt.properties;
+package org.kccb.properties;
 
 /**
  * Created by ALFAYO on 7/12/2017.
@@ -45,7 +45,7 @@ public class App {
 
             // get the property value and print it out
 
-            System.out.println(prop.getProperty(SptConstants.GP_SPT_FILE_DIR));
+            System.out.println(prop.getProperty(SptConstants.GP_kccb_FILE_DIR));
             System.out.println(prop.getProperty(SptConstants.GP_EMAIL_ADDRESS));
             System.out.println(prop.getProperty(SptConstants.GP_EMAIL_PWD));
 

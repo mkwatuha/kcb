@@ -2,9 +2,9 @@
 <web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
-	<display-name>SPT</display-name>
+	<display-name>kccb</display-name>
 
-	<description>Secure Payslip Transmission</description>
+	<description>KCCB-CVD Screening System</description>
 	
 	<context-param>
 		<param-name>log4jConfigLocation</param-name>
@@ -13,7 +13,7 @@
 
     <context-param>
 		<param-name>webAppRootKey</param-name>
-		<param-value>spt.root</param-value>
+		<param-value>kccb.root</param-value>
 	</context-param>
 	
 	<context-param>

@@ -1,20 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
-  <component name="FacetManager">
-    <facet type="Spring" name="Spring">
-      <configuration />
-    </facet>
-    <facet type="web" name="Web">
-      <configuration>
-        <descriptors>
-          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/src/main/webapp/WEB-INF/web.xml" />
-        </descriptors>
-        <webroots>
-          <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
-        </webroots>
-      </configuration>
-    </facet>
-  </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_6">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
@@ -25,33 +10,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/activation.jar!/" />
-          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/bcmail-jdk15on-157.jar!/" />
-          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/bcpkix-jdk15on-157.jar!/" />
-          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/bcprov-jdk15on-157.jar!/" />
-          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/commons-logging-1.2.jar!/" />
-          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/fontbox-2.0.6.jar!/" />
-          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/itext7-barcodes-7.0.2.jar!/" />
-          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/itext7-forms-7.0.2.jar!/" />
-          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/itext7-io-7.0.2.jar!/" />
-          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/itext7-kernel-7.0.2.jar!/" />
-          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/itext7-layout-7.0.2.jar!/" />
-          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/itext7-pdfa-7.0.2.jar!/" />
-          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/itext7-sign-7.0.2.jar!/" />
-          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/itextpdf-5.5.11.jar!/" />
-          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/log4j-1.2.16.jar!/" />
-          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/preflight-2.0.6.jar!/" />
-          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/xmpbox-2.0.6.jar!/" />
-        </CLASSES>
-        <JAVADOC>
-          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/commons-logging-1.2-javadoc.jar!/" />
-        </JAVADOC>
-        <SOURCES />
-      </library>
-    </orderEntry>
     <orderEntry type="library" name="Maven: org.springframework:spring-context:3.0.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:3.0.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:3.0.5.RELEASE" level="project" />
@@ -70,6 +28,7 @@
     <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.7.0" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-core-asl:1.7.0" level="project" />
     <orderEntry type="library" name="Maven: org.hsqldb:hsqldb:2.0.0" level="project" />
+    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.46" level="project" />
     <orderEntry type="library" name="Maven: joda-time:joda-time:1.6.1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: joda-time:joda-time-jsptags:1.0.1" level="project" />
     <orderEntry type="library" name="Maven: javax.validation:validation-api:1.0.0.GA" level="project" />

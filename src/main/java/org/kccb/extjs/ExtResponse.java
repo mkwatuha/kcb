@@ -1,4 +1,4 @@
-package org.spt.extjs;
+package org.kccb.extjs;
 
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 

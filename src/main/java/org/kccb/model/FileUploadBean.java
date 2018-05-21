@@ -1,4 +1,4 @@
-package org.spt.model;
+package org.kccb.model;
 
 /**
  * Created by ALFAYO on 7/6/2017.

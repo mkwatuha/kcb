@@ -1,16 +1,92 @@
-Ext.require([
-    'Ext.form.*',
-    'Ext.tip.*'
-]);
+function createUploadForm(displayhere,fileType,title){
 
-function createForm() {
-    var viewdiv = document.getElementById('upload-form');
+var obj=document.getElementById(displayhere);
 
+obj.innerHTML='';
+
+
+Ext.onReady(function() {
+Ext.tip.QuickTipManager.init();
+Ext.apply(Ext.form.VTypes, {
+            payrollFileUpload: function (val, field) {
+                var fileName = /^.*\.(pdf)$/i;
+                return fileName.test(val);
+            },
+            payrollFileUploadText: 'Remote file must be in .pdf format'
+        });
+
+
+        Ext.apply(Ext.form.VTypes, {
+            contactUpload: function (val, field) {
+                var fileName = /^.*\.(csv)$/i;
+                return fileName.test(val);
+            },
+            contactUploadText: 'File must be in .csv format'
+        });
+
+var formWin = Ext.create('Ext.window.Window', {
+            id: 'uploadForm',
+            width:400,
+            height:200,
+            title: false,
+            autoScroll: true,
+            border: false,
+            renderTo:'center-info-v',
+            layout: 'fit',
+            closable:true,
+            maximizable:true,
+            animCollapse:false,
+            constrainHeader:true,
+            resizable:true,
+            title:title,
+            items: [
+                    {
+                        border: false,
+                        xtype: 'form',
+                        items: [{
+                xtype: 'filefield',
+                vtype: fileType,
+                padding:10,
+                name: 'file',
+                fieldLabel: 'File',
+                labelWidth: 50,
+                msgTarget: 'side',
+                allowBlank: false,
+                anchor: '100%',
+                buttonText: 'Select a File...'
+            }],
+
+            buttons: [{
+                text: 'Upload File',
+                handler: function () {
+                    var form = this.up('form').getForm();
+                    if (form.isValid()) {
+                        form.submit({
+                            url: 'upload.action',
+                            waitMsg: 'Uploading your file...',
+                            success: function (fp, o) {
+                                Ext.Msg.alert('Success', 'Your file has been uploaded.');
+                            }
+                        });
+                    }
+                }
+            }]
+        }
+    ]
+            
+
+        });
+
+       formWin.show();
+
+});
+
+}
+
+function createContactForm() {
+    var viewdiv = document.getElementById('center-info');
     viewdiv.innerHTML = '';
     Ext.onReady(function () {
-
-        /////////////////////////////
-
 
         Ext.define('Ext.FormSerializer', {
             constructor: function (form) {
@@ -55,110 +131,143 @@ function createForm() {
         });
 
 
-        //////////////////////////
-        Ext.apply(Ext.form.field.VTypes, {
-            password: function (val, field) {
-                if (/^[a-z0-9]+$/i.test(val)) {
-                    return true;
+        Ext.create('Ext.form.Panel', {
+            title: 'File Uploader',
+            width: 400,
+            bodyPadding: 10,
+            frame: true,
+            id: 'contactsForm',
+            renderTo: 'center-info',
+            items: [
+
+                {
+                    xtype: 'textfield',
+                    name: 'firstName',
+                    fieldLabel: 'First Name'
+                },
+                {
+                    xtype: 'textfield',
+                    name: 'middleName',
+                    fieldLabel: 'Middle Name'
+                }, {
+                    xtype: 'textfield',
+                    name: 'lastName',
+                    fieldLabel: 'lastName'
+                }, {
+                    xtype: 'textfield',
+                    name: 'pfNumber',
+                    fieldLabel: 'pfNumber'
+                }, {
+                    xtype: 'textfield',
+                    name: 'emailAddress',
+                    fieldLabel: 'Email Address'
+                },
+                {
+                    xtype: 'textfield',
+                    name: 'idNumber',
+                    fieldLabel: 'ID Number'
                 }
-            },
-            passwordText: 'Password may only contain letters and numbers.'
-        });
 
-        Ext.QuickTips.init();
-
-        function submitOnEnter(field, event) {
-            if (event.getKey() == event.ENTER) {
-                var form = field.up('form').getForm();
-                form.submit();
-            }
-        }
-
-        // From http://bit.ly/Bvvv8
-        function password(length, special) {
-            var iteration = 0;
-            var password = '';
-            var randomNumber;
-
-            if (special == undefined) {
-                var special = false;
-            }
-
-            while (iteration < length) {
-                randomNumber = (Math.floor((Math.random() * 100)) % 94) + 33;
-                if (!special) {
-                    if ((randomNumber >= 33) && (randomNumber <= 47)) { continue; }
-                    if ((randomNumber >= 58) && (randomNumber <= 64)) { continue; }
-                    if ((randomNumber >= 91) && (randomNumber <= 96)) { continue; }
-                    if ((randomNumber >= 123) && (randomNumber <= 126)) { continue; }
-                }
-                iteration++;
-                password += String.fromCharCode(randomNumber);
-            }
-            return password;
-        }
-
-        // Form
-        // -----------------------------------------------------------------------
-        var addUserForm = Ext.create('Ext.form.Panel', {
-            renderTo: 'upload-form',
-            id: 'fileUploadForm',
-            bodyStyle: 'padding: 5px 5px 0 5px;',
-            defaults: {
-                xtype: 'textfield',
-                anchor: '80%',
-            },
-            items: [{
-                fieldLabel: 'Email',
-                name: 'emails',
-                xtype: 'textfield',
-                allowBlank: true
-            },
-            {
-                xtype: 'textfield',
-                msgTarget: 'side',
-                name: 'file_brouwse',
-                fieldLabel: 'File Brouwse ',
-                allowBlank: true,
-                minLength: 1
-            }
             ],
-            buttons: [
-                {
-                    xtype: 'button',
-                    text: 'Submit Data',
-                    handler: function () {
-                        var form = this.up('form').getForm();
 
-                        form.submit({
-                            url: 'contacts',
-                            waitMsg: 'saving changes...',
-                            success: function (fp, o) {
-                                alert(o);
-                            }
-                        });
+            buttons: [{
+                text: 'Save',
+                iconCls:'save',
+                handler: function () {
+                    var form = this.up('form').getForm();
 
-                    }
-                },
-                {
-                    text: 'Cancel',
-                    handler: function () {
-                        this.up('form').getForm().reset();
-                    }
-                },
-                {
-                    text: 'Serialize form',
-                    handler: function () {
-                        new Ext.FormSerializer('fileUploadForm').toObject();
+                    new Ext.FormSerializer('contactsForm').toObject();
 
-                        var formjson = Ext.create('Ext.FormSerializer', 'fileUploadForm').toJSON();
-                        alert('formjsonformjson' + formjson)
-                        var formstrng = Ext.create('Ext.FormSerializer', 'fileUploadForm').toQueryString();
-                        alert('formstrng' + formstrng)
+                    var formjson = Ext.create('Ext.FormSerializer', 'contactsForm').toJSON();
+                    console.log('formjsonformjson', formjson)
+                    var formstrng = Ext.create('Ext.FormSerializer', 'contactsForm').toQueryString();
+                    saveContact(formjson);
+
+
+                    if (form.isValid()) {
+
                     }
                 }
-
-            ]
+            }]
         });
+    });
+}
+
+
+function sendBatchEmail(queue) {
+    Ext.Ajax.request({
+        url: 'email',
+        method: 'POST',
+        params: {queue:queue },
+        waitMsg: 'Sending Email',
+        success: function (fp, o) {
+            Ext.Msg.alert('Success', 'Email(s) sent successfully');
+        },
+        failure: function (fp, o) {
+            showloginerror('Error', 'Errors encountered when sending email(s),check your network connection');
+        }
+    });
+}
+
+function getBouncedMessages() {
+    Ext.Ajax.request({
+        url: 'email',
+        method: 'get',
+        params: { emailType: 'bounced' },
+        waitMsg: 'Finding Bounced Email',
+        success: function (fp, o) {
+            Ext.Msg.alert('Success', 'Searching Completed');
+        },
+        failure: function (fp, o) {
+            Ext.Msg.failure('Error', 'Your email has could not send');
+        }
+    });
+}
+
+function deleteMessages(queue) {
+    Ext.Ajax.request({
+        url: 'queue',
+        method: 'post',
+        params: { queue: queue },
+        waitMsg: 'Deleting message queue',
+        success: function (fp, o) {
+            Ext.Msg.alert('Success', 'Deleted');
+        },
+        failure: function (fp, o) {
+            Ext.Msg.failure('Error', 'Queue could not be cleared');
+        }
+    });
+}
+
+function removeQueedItemsOnconfirmation(queue, title) {
+
+    Ext.Msg.confirm('Confirm Delete', title,
+        function (id, value) {
+            if (id === 'yes') {
+                deleteMessages(queue);
+            }
+        }, this);
+
+
+}
+
+function confirmToSendEMail(queue, title) {
+
+    Ext.Msg.confirm('Send Email', title,
+        function (id, value) {
+            if (id === 'yes') {
+                sendBatchEmail(queue);
+            }
+        }, this);
+
+
+}
+
+function showloginerror(errorid,title){
+    Ext.Msg.show({
+        title:title,
+        msg: errorid,
+        buttons: Ext.Msg.OK,
+        icon: Ext.Msg.ERROR
     });
 }

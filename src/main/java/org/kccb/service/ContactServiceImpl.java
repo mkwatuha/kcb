@@ -1,9 +1,9 @@
-package org.spt.service;
+package org.kccb.service;
 
-import org.spt.model.Contact;
-import org.spt.model.PayslipData;
-import org.spt.model.SplitPDF;
-import org.spt.dao.ContactDao;
+import org.kccb.model.Contact;
+import org.kccb.model.PayslipData;
+import org.kccb.model.SplitPDF;
+import org.kccb.dao.ContactDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

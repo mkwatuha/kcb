@@ -6,7 +6,7 @@
 
 
     <!-- Turns on component scanning to find all the annotated components -->
-    <context:component-scan base-package="org.spt"/>
+    <context:component-scan base-package="org.kccb"/>
 
     <!-- Turns on support for mapping requests to Spring MVC @Controller methods
           Also registers default Formatters and Validators for use across all @Controllers -->

@@ -1,14 +1,14 @@
-package org.spt.controller;
+package org.kccb.controller;
 
 import com.itextpdf.text.DocumentException;
-import org.spt.model.Contact;
-import org.spt.extjs.ExtData;
-import org.spt.extjs.ExtResponse;
+import org.kccb.model.Contact;
+import org.kccb.extjs.ExtData;
+import org.kccb.extjs.ExtResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.spt.service.ComService;
-import org.spt.service.ContactService;
-import org.spt.service.DocumentService;
+import org.kccb.service.ComService;
+import org.kccb.service.ContactService;
+import org.kccb.service.DocumentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -43,14 +43,14 @@ public class ContactController {
         ExtData data = new ExtData();
         List<Contact> contacts=new ArrayList<Contact>();
         if(selectType.equalsIgnoreCase("queue")){
-          contacts = comService.pendingFilesContacts("c:\\tomcat6\\spt\\encrypted\\", contactService.getAllContacts());;
+          contacts = comService.pendingFilesContacts("c:\\tomcat6\\kccb\\encrypted\\", contactService.getAllContacts());;
          }
         if(selectType.equalsIgnoreCase("contacts")){
             contacts = contactService.getAllContacts();
         }
 
         if(selectType.equalsIgnoreCase("no_address")){
-            contacts = contactService.getMissingContacts("c:\\tomcat6\\spt\\no_contacts\\");
+            contacts = contactService.getMissingContacts("c:\\tomcat6\\kccb\\no_contacts\\");
         }
 
         data.add(contacts);
@@ -69,13 +69,13 @@ public class ContactController {
         List<Contact> updated = contactService.addContacts(contacts);
 
         ret.add(updated);
-        // c:/tomcat6/spt/tests/3684.pdf queueDocuments(String source,String destination)
-      // String pfn= documentService.getPFNumber("c:/tomcat6/spt/tests/splitDocument1_1.pdf");
-        //documentService.encryptDirFiles("c:/tomcat6/spt/tests/3684_itext.pdf", "c:/tomcat6/spt/tests/3684_malllll.pdf");
-        //documentService.encryptDirFiles("c:\\tomcat6\\spt/queue\\", "c:\\tomcat6\\spt\\encrypted\\");
-        //comService.batchEmail("c:\\tomcat6\\spt\\encrypted\\", contactService.getAllContacts());
+        // c:/tomcat6/kccb/tests/3684.pdf queueDocuments(String source,String destination)
+      // String pfn= documentService.getPFNumber("c:/tomcat6/kccb/tests/splitDocument1_1.pdf");
+        //documentService.encryptDirFiles("c:/tomcat6/kccb/tests/3684_itext.pdf", "c:/tomcat6/kccb/tests/3684_malllll.pdf");
+        //documentService.encryptDirFiles("c:\\tomcat6\\kccb/queue\\", "c:\\tomcat6\\kccb\\encrypted\\");
+        //comService.batchEmail("c:\\tomcat6\\kccb\\encrypted\\", contactService.getAllContacts());
 
-        //comService.emailAllContacts("c:\\tomcat6\\spt\\encrypted\\", contactService.getAllContacts());
+        //comService.emailAllContacts("c:\\tomcat6\\kccb\\encrypted\\", contactService.getAllContacts());
 
         ret.setSuccess(true);
         return ret;

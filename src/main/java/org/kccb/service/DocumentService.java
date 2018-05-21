@@ -1,7 +1,7 @@
-package org.spt.service;
+package org.kccb.service;
 
 import com.itextpdf.text.DocumentException;
-import org.spt.model.PayslipData;
+import org.kccb.model.PayslipData;
 
 import java.io.IOException;
 

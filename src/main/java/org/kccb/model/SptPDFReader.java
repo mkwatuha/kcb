@@ -1,4 +1,4 @@
-package org.spt.model;
+package org.kccb.model;
 
 /**
  * Created by ALFAYO on 6/21/2017.
@@ -66,8 +66,8 @@ public class SptPDFReader {
     }
 
     public static void mergePdfFiles() throws IOException,DocumentException{
-        String parentFile="c:/tomcat6/spt/tests/3684_test.pdf";
-        String restFile="c:/tomcat6/spt/tests/3684_test_merged.pdf";
+        String parentFile="c:/tomcat6/kccb/tests/3684_test.pdf";
+        String restFile="c:/tomcat6/kccb/tests/3684_test_merged.pdf";
         List<PdfReader>readers=new ArrayList<PdfReader>();
         for(int i=0;i<5;i++){
             PdfReader reader = new PdfReader(parentFile);
@@ -77,9 +77,9 @@ public class SptPDFReader {
     }
 
     public static void manipulatePdf() throws DocumentException, IOException {
-        String dest="c:/tomcat6/spt/tests/3684_test_merged.pdf";
-        String DATA="c:/tomcat6/spt/uploaded/sample_employee_data_ampath.csv";
-        String SRC="c:/tomcat6/spt/tests/splitDocument1_1.pdf";
+        String dest="c:/tomcat6/kccb/tests/3684_test_merged.pdf";
+        String DATA="c:/tomcat6/kccb/uploaded/sample_employee_data_ampath.csv";
+        String SRC="c:/tomcat6/kccb/tests/splitDocument1_1.pdf";
 
         Document document = new Document();
         PdfCopy copy = new PdfSmartCopy(document, new FileOutputStream(dest));

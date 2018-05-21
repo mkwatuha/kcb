@@ -1,7 +1,6 @@
-package org.spt.service;
+package org.kccb.service;
 
-import org.spt.model.Contact;
-import org.spt.model.PayslipData;
+import org.kccb.model.Contact;
 
 import java.io.File;
 import java.io.IOException;

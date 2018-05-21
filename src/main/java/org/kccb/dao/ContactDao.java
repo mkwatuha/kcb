@@ -1,6 +1,6 @@
-package org.spt.dao;
+package org.kccb.dao;
 
-import org.spt.model.Contact;
+import org.kccb.model.Contact;
 
 import java.util.List;
 

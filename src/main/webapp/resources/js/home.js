@@ -53,7 +53,7 @@ function estateViewPort() {
                 }
             },
             {
-                text: 'Upload Contacts',
+                text: 'Upload screening data',
                 iconCls: 'user-add',
                 id: 'contactUpload',
                 handler: function () {
@@ -62,11 +62,11 @@ function estateViewPort() {
                 }
             },
             {
-                text: 'Upload Payroll File',
+                text: 'Upload Remote File',
                 id: 'payrollFileUpload',
                 iconCls: 'pdf',
                 handler: function () {
-                    uploadFile('Upload Payroll File', 'payrollFileUpload');
+                    uploadFile('Upload Remote File', 'payrollFileUpload');
                 }
             }
 
@@ -123,7 +123,7 @@ function estateViewPort() {
         });
 
         var win = Ext.create('Ext.window.Window', {
-            title: 'Secure Payslip Transmission',
+            title: 'KCCB-CVD Screening System',
             //width: 500,
             bodyPadding: 10,
             iconCls: 'icon-grid',

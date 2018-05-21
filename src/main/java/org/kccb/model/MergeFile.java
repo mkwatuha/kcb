@@ -1,4 +1,4 @@
-package org.spt.model;
+package org.kccb.model;
 
 
 import com.itextpdf.text.Document;
@@ -27,8 +27,8 @@ public class MergeFile {
 
 
 //    public static void mergeFiles() throws IOException {
-//        String parentFile="c:/tomcat6/spt/tests/3684_test.pdf";
-//        String restFile="c:/tomcat6/spt/tests/3684_test_merged.pdf";
+//        String parentFile="c:/tomcat6/kccb/tests/3684_test.pdf";
+//        String restFile="c:/tomcat6/kccb/tests/3684_test_merged.pdf";
 //        PdfDocument pdfDoc = new PdfDocument(new PdfWriter(restFile));
 //       Map<String, PdfDocument> fileList=new TreeMap<String, PdfDocument>();
 //        for(int i=0;i<=10;i++){

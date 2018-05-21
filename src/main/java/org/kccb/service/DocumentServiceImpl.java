@@ -1,4 +1,4 @@
-package org.spt.service;
+package org.kccb.service;
 
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
@@ -11,7 +11,7 @@ import org.apache.commons.lang.StringUtils;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.spt.model.*;
+import org.kccb.model.*;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -20,7 +20,6 @@ import java.nio.file.*;
 
 
 import com.itextpdf.text.pdf.PdfReader;
-import org.spt.properties.App;
 
 
 @Service
@@ -71,7 +70,7 @@ public class DocumentServiceImpl implements DocumentService {
             @Override
             protected PdfWriter getNextPdfWriter(PageRange documentPageRange) {
                 try {
-                    return new PdfWriter(destFolder + "spt_" + String.valueOf(partNumber++) + ".pdf");
+                    return new PdfWriter(destFolder + "kccb_" + String.valueOf(partNumber++) + ".pdf");
                 } catch (FileNotFoundException e) {
                     throw new RuntimeException();
                 }

@@ -1,4 +1,4 @@
-package org.spt.model;
+package org.kccb.model;
 
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.*;
@@ -13,28 +13,15 @@ import java.io.IOException;
 public class PDFLoader {
 
     public static String getMessage() {
-        String path="c:/tomcat6/spt/tests/3685.pdf";
-        String path2="c:/tomcat6/spt/tests/3684.pdf";
+        String path="c:/tomcat6/kccb/tests/3685.pdf";
+        String path2="c:/tomcat6/kccb/tests/3684.pdf";
 
         try {
-           // PDDocument document = new PDDocument();
-           // document.load(new File("c:/tomcat6/spt/tests/3684.pdf"));
-            // PDFLoader.encryptDocument(document,"22661162");
-            //PDFLoader.readPDF("c:/tomcat6/spt/tests/3684_tested.pdf");
-           // SptPDFReader.readPdfData("c:/tomcat6/spt/tests/3684readed.pdf","c:/tomcat6/spt/tests/36890.pdf");
-            //PDFLoader.sendCustomEmail();
-            //SendMailTLS.sendByTSLs(); //works
-            //SendEmail.email();
-           // CheckingMails.findEmails();
-           // SendMailSSL.sendEmail();
-            //SplitPDF.splitPdf("c:/tomcat6/spt/tests/");
-            //PDFLoader.securePDF("c:/tomcat6/spt/tests/3684_here.pdf","22661162");
-           // PDFLoader. encryptPdf("c:/tomcat6/spt/tests/3684_itext.pdf", "c:/tomcat6/spt/tests/3684_encripted.pdf");
         } catch(Exception e){
             e.printStackTrace();
 
         }
-        return "Secure Payslip Transmission Information sSS";
+        return "KCCB-CVD Screening System";
     }
 
 
@@ -61,7 +48,7 @@ public class PDFLoader {
 
         PdfReader reader = new PdfReader(path);
         PdfStamper stamper = new PdfStamper(reader, new FileOutputStream(
-                "c:/tomcat6/spt/tests/3684_test.pdf"));
+                "c:/tomcat6/kccb/tests/3684_test.pdf"));
         BaseFont bf = BaseFont.createFont(BaseFont.HELVETICA, BaseFont.CP1252,
                 BaseFont.NOT_EMBEDDED);
 

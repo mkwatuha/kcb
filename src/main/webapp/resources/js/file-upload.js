@@ -8,7 +8,7 @@ function uploadFile(title, fileType) {
                 var fileName = /^.*\.(pdf)$/i;
                 return fileName.test(val);
             },
-            payrollFileUploadText: 'Payroll file must be in .pdf format'
+            payrollFileUploadText: 'Remote file must be in .pdf format'
         });
 
 

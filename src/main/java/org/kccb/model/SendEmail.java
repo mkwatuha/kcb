@@ -1,4 +1,4 @@
-package org.spt.model;
+package org.kccb.model;
 import javax.mail.Message;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;

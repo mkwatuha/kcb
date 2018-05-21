@@ -1,4 +1,4 @@
-package org.spt.model;
+package org.kccb.model;
 
 /**
  * Created by ALFAYO on 6/23/2017.
@@ -60,7 +60,7 @@ public class SendMailTLS {
             // Part two is attachment
             messageBodyPart = new MimeBodyPart();
 //            String filename = "/home/manisha/file.txt";
-            String filename = "c:/tomcat6/spt/tests/3684.pdf";
+            String filename = "c:/tomcat6/kccb/tests/3684.pdf";
             DataSource source = new FileDataSource(filename);
             messageBodyPart.setDataHandler(new DataHandler(source));
             messageBodyPart.setFileName(filename);

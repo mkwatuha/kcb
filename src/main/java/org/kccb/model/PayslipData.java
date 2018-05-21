@@ -1,4 +1,4 @@
-package org.spt.model;
+package org.kccb.model;
 
 public class PayslipData {
 
