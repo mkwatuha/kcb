@@ -13,18 +13,14 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.sql.DataSource;
 import java.util.*;
 
-/**
- * JDBC implementation of the ContactDao. This class makes use of Spring's
- * SimpleJdcbTemplate, along with other Spring JDBC classes, for all its
- * operations.
- */
+
 @Repository
 public class JdbcContactDao implements ContactDao {
 
-    private final static String SQL_SELECT = "SELECT id, last_name,middle_name,first_name, pf_number,id_number,email_address FROM contacts ";
+    private final static String SQL_SELECT = "SELECT id, last_name,middle_name,first_name, phone_number,id_number,email_address FROM contacts ";
     private final static String SQL_UPDATE = "UPDATE contacts set first_name = :firstName, last_name = :lastName,middle_name = :middleName " +
             " ,email_address = :emailAddress " +
-            " ,pf_number = :pfNumber " +
+            " ,phone_number = :phoneNumber " +
             " ,id_number = :idNumber " +
             "WHERE id = :id";
     private final static String SQL_DELETE = "DELETE FROM contacts WHERE id = ?";
@@ -91,7 +87,7 @@ public class JdbcContactDao implements ContactDao {
         params.put("lastName", contact.getLastName());
         params.put("idNumber", contact.getIdNumber());
         params.put("emailAddress", contact.getEmailAddress());
-        params.put("pfNumber", contact.getPfNumber());
+        params.put("phoneNumber", contact.getPhoneNumber());
 
 
         this.simpleJdbcTemplate.update(SQL_UPDATE, params);
@@ -113,7 +109,7 @@ public class JdbcContactDao implements ContactDao {
         params.put("first_name", contact.getFirstName());
         params.put("last_name", contact.getLastName());
         params.put("middle_name", contact.getMiddleName());
-        params.put("pf_number", contact.getPfNumber());
+        params.put("phone_number", contact.getPhoneNumber());
         params.put("email_address", contact.getEmailAddress());
         params.put("id_number", contact.getIdNumber());
 
@@ -123,13 +119,13 @@ public class JdbcContactDao implements ContactDao {
     }
 
     @Override
-    public List<Contact> searchForContactByPf(String pf_number) {
+    public List<Contact> searchForContactByPf(String phone_number) {
 
         Map<String,String> params = new HashMap<String,String>();
-        params.put("criteria", pf_number);
+        params.put("criteria", phone_number);
 
         List<Contact> contacts = this.simpleJdbcTemplate.query(
-                SQL_SELECT + "WHERE pf_number LIKE :criteria",
+                SQL_SELECT + "WHERE phone_number LIKE :criteria",
                 BeanPropertyRowMapper.newInstance(Contact.class), params);
 
         return contacts;

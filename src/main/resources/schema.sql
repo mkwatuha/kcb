@@ -5,7 +5,7 @@ CREATE TABLE contacts (
     first_name VARCHAR(100),
     middle_name VARCHAR(100),
     last_name VARCHAR(100),
-    pf_number VARCHAR(100),
+    phone_number VARCHAR(100),
     id_number VARCHAR(100),
     email_address VARCHAR(100)
 );

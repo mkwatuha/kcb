@@ -4,7 +4,7 @@ public class PayslipData {
 
     private Integer id;
     private String payPeriod;
-    private String pfNumber;
+    private String phoneNumber;
     private String empName;
 
 
@@ -24,12 +24,12 @@ public class PayslipData {
         this.payPeriod = payPeriod;
     }
 
-    public String getPfNumber() {
-        return pfNumber;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void   setPfNumber(String pfNumber) {
-        this.pfNumber = pfNumber;
+    public void   setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getEmpName() {

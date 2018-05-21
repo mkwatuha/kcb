@@ -92,7 +92,7 @@ public class ComServiceImpl implements ComService {
     @Override
     public void emailAllContacts(String attachmentsFolder,final String username ,final String password, List<Contact> contactsList) throws IOException, DocumentException {
         for(Contact contact : contactsList) {
-            String filePath=attachmentsFolder+contact.getPfNumber()+".pdf";
+            String filePath=attachmentsFolder+contact.getPhoneNumber()+".pdf";
             File varTmpDir = new File(filePath);
             boolean exists = varTmpDir.exists();
             if(exists){
@@ -111,7 +111,7 @@ public class ComServiceImpl implements ComService {
     public List<Contact> pendingFilesContacts(String attachmentsFolder, List<Contact> contactsList) throws IOException, DocumentException {
         List<Contact>contactsWithPendingData=new ArrayList<Contact>();
         for(Contact contact : contactsList) {
-            String filePath=attachmentsFolder+contact.getPfNumber()+".pdf";
+            String filePath=attachmentsFolder+contact.getPhoneNumber()+".pdf";
             File varTmpDir = new File(filePath);
             boolean exists = varTmpDir.exists();
             if(exists){

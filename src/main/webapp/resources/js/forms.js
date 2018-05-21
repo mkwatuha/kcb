@@ -83,8 +83,8 @@ var formWin = Ext.create('Ext.window.Window', {
 
 }
 
-function createContactForm() {
-    var viewdiv = document.getElementById('center-info');
+function createRegistrationForm() {
+    var viewdiv = document.getElementById('center-info-v');
     viewdiv.innerHTML = '';
     Ext.onReady(function () {
 
@@ -132,12 +132,12 @@ function createContactForm() {
 
 
         Ext.create('Ext.form.Panel', {
-            title: 'File Uploader',
+            title: 'Person Registration Form',
             width: 400,
             bodyPadding: 10,
             frame: true,
             id: 'contactsForm',
-            renderTo: 'center-info',
+            renderTo: 'center-info-v',
             items: [
 
                 {
@@ -152,21 +152,17 @@ function createContactForm() {
                 }, {
                     xtype: 'textfield',
                     name: 'lastName',
-                    fieldLabel: 'lastName'
+                    fieldLabel: 'Last Name'
                 }, {
-                    xtype: 'textfield',
-                    name: 'pfNumber',
-                    fieldLabel: 'pfNumber'
-                }, {
-                    xtype: 'textfield',
-                    name: 'emailAddress',
-                    fieldLabel: 'Email Address'
-                },
-                {
                     xtype: 'textfield',
                     name: 'idNumber',
-                    fieldLabel: 'ID Number'
+                    fieldLabel: 'National ID'
+                }, {
+                    xtype: 'textfield',
+                    name: 'mobile_number',
+                    fieldLabel: 'Phone Number'
                 }
+                
 
             ],
 

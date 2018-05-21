@@ -10,7 +10,7 @@ import java.io.IOException;
  */
 public interface DocumentService {
     public void queueDocuments(String source, String destination);
-    public PayslipData getPFNumber(String sourcePath);
+    public PayslipData getPhoneNumber(String sourcePath);
     public void splitPdf( final String source ,final String destFolder) throws IOException;
     public  void encryptPdf(String src, String dest,String userPassword,String ownerPassword) throws IOException, DocumentException;
     public void  encryptDirFiles(String source, String destination,String no_contacts_dir)  throws IOException, DocumentException;

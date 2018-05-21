@@ -40,15 +40,15 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     @Override
-    public PayslipData getPFNumber(String sourcePath) {
+    public PayslipData getPhoneNumber(String sourcePath) {
         PayslipData data=new PayslipData();
         PdfReader reader=null;
         try {
             reader = new PdfReader(sourcePath);
             String page = PdfTextExtractor.getTextFromPage(reader, 1);
             String payslipText[]=page.split("\n");
-            String pfNumberRow[]=payslipText[1].split("Employee No.");
-            data.setPfNumber(pfNumberRow[1].trim());
+            String phoneNumberRow[]=payslipText[1].split("Employee No.");
+            data.setPhoneNumber(phoneNumberRow[1].trim());
             data.setEmpName(payslipText[2].trim());
             data.setPayPeriod(payslipText[3].trim());
 
@@ -103,12 +103,12 @@ public class DocumentServiceImpl implements DocumentService {
                 boolean exists = varTmpDir.exists();
 
                 if(exists){
-                    PayslipData data=this.getPFNumber(filePath);
-                    encryptedFilePath=destination+data.getPfNumber().trim()+".pdf";
+                    PayslipData data=this.getPhoneNumber(filePath);
+                    encryptedFilePath=destination+data.getPhoneNumber().trim()+".pdf";
 
                     try {
                         List<Contact>contacts=null;
-                        contacts=contactService.searchContactByPf(data.getPfNumber());
+                        contacts=contactService.searchContactByPf(data.getPhoneNumber());
                         if(contacts.size()>0){
                             String userPWD=contacts.get(0).getIdNumber().trim();
                             String ownPWD=contacts.get(0).getIdNumber().trim();

@@ -13,7 +13,7 @@ public interface ContactDao {
 
     public List<Contact> searchForContact(String criteria);
 
-    public List<Contact> searchForContactByPf(String pf_number);
+    public List<Contact> searchForContactByPf(String phone_number);
 
     public List<Contact> listAll();
 

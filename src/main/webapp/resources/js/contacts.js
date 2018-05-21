@@ -4,14 +4,14 @@ Ext.onReady(function () {
     App.contactFormStore = formDataSource();
 });
 
-function employeeContacts() {
+function getPatientList() {
     App.contactStore = contactDataSource('contacts');
     var toolBars = [{
-        text: 'Add Contact',
-        tooltip: 'Create new contact',
+        text: 'Add Person',
+        tooltip: 'Create new person',
         iconCls: 'add',
         handler: function () {
-            createContactForm();
+            createRegistrationForm();
         }
     }, '-',
     {
@@ -22,7 +22,7 @@ function employeeContacts() {
             removeQueedItemsOnconfirmation('contacts', 'Are you sure you want to delete all contacts?');
         }
     }, '-'];
-    genericGridView(App.contactConfig, 'Employee Contact', toolBars);
+    genericGridView(App.contactConfig, 'Person Registration', toolBars);
 }
 
 function emailQueue() {
@@ -48,14 +48,14 @@ function emailQueue() {
 
     genericGridView(App.contactConfig, 'Email Queue', toolBars);
 }
-function getEmployeesWithoutEmail() {
+function getPatientsOnQueue() {
     App.queueStore = contactDataSource('no_address');
     var toolBars = [{
-        text: 'Re-send',
+        text: 'Send',
         tooltip: '',
         iconCls: 'email',
         handler: function () {
-            confirmToSendEMail('no_contacts', 'Are you sure you want to email to missed contacts?');
+            confirmToSendEMail('no_contacts', 'Are you sure you want to email to patients on queue?');
         }
     }, '-',
     {
@@ -64,10 +64,10 @@ function getEmployeesWithoutEmail() {
         iconCls: 'remove',
         handler: function () {
 
-            removeQueedItemsOnconfirmation('no_contacts', 'Are you sure you want to delete list of employees without contacts?');
+            removeQueedItemsOnconfirmation('no_contacts', 'Are you sure you want to delete patients on queue?');
         }
     }, '-'];
-    genericGridView(App.contactConfig, 'Employees Without Email Addresses', toolBars);
+    genericGridView(App.contactConfig, 'Patients on Queue', toolBars);
 }
 
 
@@ -79,15 +79,16 @@ function createQueueDataSource(title) {
             { name: 'firstName', type: 'string' },
             { name: 'middleName', type: 'string' },
             { name: 'lastName', type: 'string' },
-            { name: 'pfNumber', type: 'string' },
+            { name: 'phoneNumber', type: 'string' },
+            { name: 'idNumber', type: 'string' },
             { name: 'emailAddress', type: 'string' }],
         gridColumns: [
             new Ext.grid.RowNumberer({ width: 50, sortable: true }),
             { header: 'First Name', width: 75, sortable: true, id: 'firstName', dataIndex: 'firstName' },
             { header: 'Middle Name', width: 75, sortable: true, id: 'middleName', dataIndex: 'middleName' },
             { header: 'Last Name', width: 160, sortable: true, id: 'lastName', dataIndex: 'lastName' },
-            { header: 'PF Number', width: 160, sortable: true, id: 'pfNumber', dataIndex: 'pfNumber' },
-            { header: 'Email Address', width: 160, sortable: true, id: 'emailAddress', dataIndex: 'emailAddress' }
+            { header: 'Phone Number', width: 160, sortable: true, id: 'phoneNumber', dataIndex: 'phoneNumber' },
+            { header: 'ID Number', width: 160, sortable: true, id: 'idNumber', dataIndex: 'idNumber' }
         ]
     };
     var gridModel = gridDataSourceModel(gridDef.dataModel);
@@ -205,15 +206,16 @@ function contactDataSource(search) {
             { name: 'firstName', type: 'string' },
             { name: 'middleName', type: 'string' },
             { name: 'lastName', type: 'string' },
-            { name: 'pfNumber', type: 'string' },
+            { name: 'phoneNumber', type: 'string' },
+            { name: 'idNumber', type: 'string' },
             { name: 'emailAddress', type: 'string' }],
         gridColumns: [
             new Ext.grid.RowNumberer({ width: 50, sortable: true }),
             { header: 'First Name', width: 75, sortable: true, id: 'firstName', dataIndex: 'firstName' },
             { header: 'Middle Name', width: 75, sortable: true, id: 'middleName', dataIndex: 'middleName' },
             { header: 'Last Name', width: 160, sortable: true, id: 'lastName', dataIndex: 'lastName' },
-            { header: 'PF Number', width: 160, sortable: true, id: 'pfNumber', dataIndex: 'pfNumber' },
-            { header: 'Email Address', width: 160, sortable: true, id: 'emailAddress', dataIndex: 'emailAddress' }
+            { header: 'Phone Number', width: 160, sortable: true, id: 'phoneNumber', dataIndex: 'phoneNumber' },
+            { header: 'ID Number', width: 160, sortable: true, id: 'idNumber', dataIndex: 'idNumber' }
         ]
     };
     App.myContactsModel = gridDataSourceModel(gridDef.dataModel);
@@ -257,7 +259,7 @@ function formDataSource() {
             { name: 'firstName', type: 'string' },
             { name: 'middleName', type: 'string' },
             { name: 'lastName', type: 'string' },
-            { name: 'pfNumber', type: 'string' },
+            { name: 'phoneNumber', type: 'string' },
             { name: 'idNumber', type: 'string' },
             { name: 'emailAddress', type: 'string' }]
     });

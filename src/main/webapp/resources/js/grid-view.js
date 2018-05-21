@@ -1,13 +1,11 @@
 
-function employeeContacts() {
+function getPatientList() {
     var toolBars = [{
-                text: 'Upload Contacts',
+                text: 'Register',
                 iconCls: 'user-add',
                 id: 'contactUpload',
                 handler: function () {
-
-                    // uploadFile('Upload Contacts', 'contactUpload');
-                    createUploadForm('center-info-v', 'contactUpload','Upload Contacts');
+                    createRegistrationForm();
                 }
             }, '-',
     {
@@ -15,33 +13,32 @@ function employeeContacts() {
         tooltip: '',
         iconCls: 'remove',
         handler: function () {
-            removeQueedItemsOnconfirmation('contacts', 'Are you sure you want to delete all contacts?');
+            removeQueedItemsOnconfirmation('contacts', 'Are you sure you want to delete all patients?');
         }
     }, '-'];
-    createDisplayView( 'contacts','center-info-v','Employee Contact',toolBars);
+    createDisplayView( 'contacts','center-info-v','Patient Screening',toolBars);
    
 }
 
 
-function getEmployeesWithoutEmail() {
+function getPatientsOnQueue() {
     var toolBars = [{
-        text: 'Re-send',
-        tooltip: '',
-        iconCls: 'email',
+        text: 'New Provider',
+        iconCls: 'user-add',
+        id: 'contactUpload',
         handler: function () {
-            confirmToSendEMail('no_contacts', 'Are you sure you want to email to missed contacts?');
+            
         }
     }, '-',
-    {
-        text: 'Delete',
-        tooltip: '',
-        iconCls: 'remove',
-        handler: function () {
-
-            removeQueedItemsOnconfirmation('no_contacts', 'Are you sure you want to delete list of employees without contacts?');
-        }
-    }, '-'];
-    createDisplayView( 'no_contacts','center-info-v','Employees Without Email Addresses',toolBars);
+{
+text: 'Delete',
+tooltip: '',
+iconCls: 'remove',
+handler: function () {
+    removeQueedItemsOnconfirmation('contacts', 'Are you sure you want to delete all provider?');
+}
+}, '-'];
+    createDisplayView( 'no_contacts','center-info-v','Health Providers',toolBars);
    
 }
 
@@ -49,12 +46,12 @@ function getEmployeesWithoutEmail() {
 function emailQueue() {
  
     var toolBars = [{
-        text: 'Send Payslips',
+        text: 'Send',
         tooltip: '',
         iconCls: 'email',
         handler: function () {
             if(window.navigator.onLine===true){
-                confirmToSendEMail('encrypted', 'Are you sure you want to send all queued messages?');
+                confirmToSendEMail('encrypted', 'Are you sure you want to contact all queued patients?');
             }else{
                 showloginerror('Error', 'Please connect to an internet network');
             }
@@ -67,10 +64,10 @@ function emailQueue() {
         iconCls: 'remove',
         handler: function () {
 
-            removeQueedItemsOnconfirmation('encrypted', 'Are you sure you want to delete all queued messages?');
+            removeQueedItemsOnconfirmation('encrypted', 'Are you sure you want to delete all queued patients?');
         }
     }, '-'];
-createDisplayView( 'queue','center-info-v','Email Queue',toolBars);
+createDisplayView( 'queue','center-info-v','Patient Queue',toolBars);
 
 }
 
@@ -89,9 +86,9 @@ var closebtn= Ext.get('close-btn');
             { name: 'firstName', type: 'string' },
             { name: 'middleName', type: 'string' },
             { name: 'lastName', type: 'string' },
-            { name: 'pfNumber', type: 'string' },
+            { name: 'emailAddress', type: 'string' },
             { name: 'idNumber', type: 'string' },
-            { name: 'emailAddress', type: 'string' }]
+            { name: 'phoneNumber', type: 'string' }]
 	});
 	var store = Ext.create('Ext.data.Store', {
     model: 'GridViewDataModel',
@@ -144,8 +141,8 @@ var closebtn= Ext.get('close-btn');
             { header: 'First Name', width: 120, sortable: true, id: 'firstName', dataIndex: 'firstName' },
             { header: 'Middle Name', width: 120, sortable: true, id: 'middleName', dataIndex: 'middleName' },
             { header: 'Last Name', width: 120, sortable: true, id: 'lastName', dataIndex: 'lastName' },
-            { header: 'ID Number', width: 100, sortable: true, id: 'pfNumber', dataIndex: 'pfNumber' },
-            { header: '{hone}', width: 250, sortable: true, id: 'emailAddress', dataIndex: 'emailAddress' }
+            { header: 'Phone Number', width: 100, sortable: true, id: 'phoneNumber', dataIndex: 'phoneNumber' },
+            { header: 'ID Number', width: 250, sortable: true, id: 'idNumber', dataIndex: 'idNumber' }
         
         ],
         }

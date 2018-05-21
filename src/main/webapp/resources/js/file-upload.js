@@ -58,7 +58,7 @@ function uploadFile(title, fileType) {
     });
 }
 
-function createContactForm() {
+function createRegistrationForm() {
     var viewdiv = document.getElementById('center-info');
     viewdiv.innerHTML = '';
     Ext.onReady(function () {
@@ -134,8 +134,8 @@ function createContactForm() {
                     fieldLabel: 'lastName'
                 }, {
                     xtype: 'textfield',
-                    name: 'pfNumber',
-                    fieldLabel: 'pfNumber'
+                    name: 'phoneNumber',
+                    fieldLabel: 'phoneNumber'
                 }, {
                     xtype: 'textfield',
                     name: 'emailAddress',

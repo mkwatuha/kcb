@@ -35,19 +35,19 @@ public class SptPDFReader {
 
         }
 
-    public static String  getPFNumber(String sourcePath) {
-            String pfNumber="";
+    public static String  getPhoneNumber(String sourcePath) {
+            String phoneNumber="";
         try {
             PdfReader reader = new PdfReader(sourcePath);
             String page = PdfTextExtractor.getTextFromPage(reader, 2);
             String s1[]=page.split("\n");
-            pfNumber= s1[1];
+            phoneNumber= s1[1];
 
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-      return pfNumber;
+      return phoneNumber;
     }
 
     public static void createPdf(String filename, List<PdfReader> readers)

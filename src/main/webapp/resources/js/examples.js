@@ -173,14 +173,14 @@ function contactDataSource(title) {
             { name: 'firstName', type: 'string' },
             { name: 'middleName', type: 'string' },
             { name: 'lastName', type: 'string' },
-            { name: 'pfNumber', type: 'string' },
+            { name: 'phoneNumber', type: 'string' },
             { name: 'emailAddress', type: 'string' }],
         gridColumns: [
             new Ext.grid.RowNumberer({ width: 50, sortable: true }),
             { header: 'First Name', width: 75, sortable: true, id: 'firstName', dataIndex: 'firstName' },
             { header: 'Middle Name', width: 75, sortable: true, id: 'middleName', dataIndex: 'middleName' },
             { header: 'Last Name', width: 160, sortable: true, id: 'lastName', dataIndex: 'lastName' },
-            { header: 'PF Number', width: 160, sortable: true, id: 'pfNumber', dataIndex: 'pfNumber' },
+            { header: 'Phone Number', width: 160, sortable: true, id: 'phoneNumber', dataIndex: 'phoneNumber' },
             { header: 'Email Address', width: 160, sortable: true, id: 'emailAddress', dataIndex: 'emailAddress' }
         ]
     };

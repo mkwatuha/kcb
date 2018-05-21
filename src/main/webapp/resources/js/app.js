@@ -40,9 +40,9 @@ function estateViewPort() {
            html:'<div>'
            +'<ul class="home-view">'
               +' <li id="payroll-upload"><img class="expand-image" src="resources/ext/shared/icons/fam/page_white_acrobat.png"/><a>Upload Remote File</a></li>'
-              +' <li id="messages"><img src="resources/ext/layout/images/grid48x48.png"/><a>Patient Queue</a></li>'            
+              +' <li id="messages"><img src="resources/ext/layout/images/grid48x48.png"/><a>Patient Screening</a></li>'            
               +' <li id="contact-list"><img src="resources/ext/layout/images/im48x48.gif"/><a>Patients</a></li>'                                                      
-              +' <li id="no-contact"><img src="resources/ext/shared/icons/fam/config-users.png"/><a>Error Queue</a></li>'                    
+              +' <li id="no-contact"><img src="resources/ext/shared/icons/fam/config-users.png"/><a>Providers</a></li>'                    
            +'</ul>'       
            +'<div  class="display-view" id="center-info-v"></div>'
            +'</div>',
@@ -61,11 +61,11 @@ function estateViewPort() {
          }, null, {delegate: 'img'});
 
        Ext.get('contact-list').on('click', function(event, target) {
-        employeeContacts();
+        getPatientList();
          }, null, {delegate: 'img'});
 
        Ext.get('no-contact').on('click', function(event, target) {
-        getEmployeesWithoutEmail();
+        getPatientsOnQueue();
          }, null, {delegate: 'img'});
 
 
@@ -78,11 +78,11 @@ function estateViewPort() {
          }, null, {delegate: 'a'});
 
        Ext.get('contact-list').on('click', function(event, target) {
-        employeeContacts();
+        getPatientList();
          }, null, {delegate: 'a'});
 
        Ext.get('no-contact').on('click', function(event, target) {
-        getEmployeesWithoutEmail();
+        getPatientsOnQueue();
          }, null, {delegate: 'a'});
 
 

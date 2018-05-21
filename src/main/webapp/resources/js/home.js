@@ -34,7 +34,7 @@ function estateViewPort() {
                 iconCls: 'user',
                 id: 'Contact-list',
                 handler: function () {
-                    employeeContacts();
+                    getPatientList();
                 }
             },
             {
@@ -49,7 +49,7 @@ function estateViewPort() {
                 text: 'Missing Email Address',
                 iconCls: 'user-red',
                 handler: function () {
-                    getEmployeesWithoutEmail();
+                    getPatientsOnQueue();
                 }
             },
             {

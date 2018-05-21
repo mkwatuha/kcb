@@ -49,7 +49,7 @@ public class ContactServiceImpl implements ContactService {
         List<Contact> data = new ArrayList<Contact>();
 
         for(Contact contact : contacts) {
-            if ( StringUtils.isNotBlank(contact.getPfNumber()) && StringUtils.isNotBlank(contact.getPfNumber()) && StringUtils.isNotBlank(contact.getIdNumber())
+            if ( StringUtils.isNotBlank(contact.getPhoneNumber()) && StringUtils.isNotBlank(contact.getPhoneNumber()) && StringUtils.isNotBlank(contact.getIdNumber())
                     ) {
                 Contact newContact = contactDao.addContact(contact);
                 data.add(newContact);
@@ -92,10 +92,10 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public List<Contact> searchContactByPf(String pf_number) {
+    public List<Contact> searchContactByPf(String phone_number) {
 
-        pf_number = (pf_number == null ? "":pf_number.trim());
-        return contactDao.searchForContactByPf(pf_number);
+        phone_number = (phone_number == null ? "":phone_number.trim());
+        return contactDao.searchForContactByPf(phone_number);
 
     }
 
@@ -114,7 +114,7 @@ public class ContactServiceImpl implements ContactService {
                     // use comma as separator
                     String[] contactData = line.split(cvsSplitBy);
                                 Contact contact =new Contact();
-                                contact.setPfNumber(contactData[0].trim());
+                                contact.setPhoneNumber(contactData[0].trim());
                                 contact.setFirstName(contactData[1].trim());
                                 contact.setMiddleName(contactData[2].trim());
                                 contact.setLastName(contactData[3].trim());
@@ -158,12 +158,12 @@ public class ContactServiceImpl implements ContactService {
                 System.out.println("File " + listOfFiles[i].getName());
                 String fileName = listOfFiles[i].getName();
                 String filePath = missingContactsDir + fileName;
-                paylipFile=documentService.getPFNumber(filePath);
+                paylipFile=documentService.getPhoneNumber(filePath);
                 String[] employeeNames=paylipFile.getEmpName().split(" ");
                 contact.setFirstName(employeeNames[2].trim());
                 contact.setMiddleName(employeeNames[3].trim());
                 contact.setLastName(employeeNames[4].trim());
-                contact.setPfNumber(paylipFile.getPfNumber());
+                contact.setPhoneNumber(paylipFile.getPhoneNumber());
 
                 contacts.add(contact);
             }

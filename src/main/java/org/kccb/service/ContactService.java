@@ -15,7 +15,7 @@ public interface ContactService {
 
     public List<Contact> searchForContact(String criteria);
 
-    public List<Contact> searchContactByPf(String pf_number);
+    public List<Contact> searchContactByPf(String phone_number);
 
     public List<Contact> getAllContacts();
 

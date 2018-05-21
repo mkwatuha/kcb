@@ -7,7 +7,7 @@ public class Contact {
     private String middleName;
     private String lastName;
     private String idNumber;
-    private String pfNumber;
+    private String phoneNumber;
     private String emailAddress;
 
 
@@ -57,11 +57,11 @@ public class Contact {
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
     }
-    public String getPfNumber() {
-        return pfNumber;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
-    public void setPfNumber(String pfNumber) {
-        this.pfNumber = pfNumber;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
 

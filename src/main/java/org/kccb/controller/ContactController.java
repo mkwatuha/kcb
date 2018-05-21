@@ -70,7 +70,7 @@ public class ContactController {
 
         ret.add(updated);
         // c:/tomcat6/kccb/tests/3684.pdf queueDocuments(String source,String destination)
-      // String pfn= documentService.getPFNumber("c:/tomcat6/kccb/tests/splitDocument1_1.pdf");
+      // String pfn= documentService.getPhoneNumber("c:/tomcat6/kccb/tests/splitDocument1_1.pdf");
         //documentService.encryptDirFiles("c:/tomcat6/kccb/tests/3684_itext.pdf", "c:/tomcat6/kccb/tests/3684_malllll.pdf");
         //documentService.encryptDirFiles("c:\\tomcat6\\kccb/queue\\", "c:\\tomcat6\\kccb\\encrypted\\");
         //comService.batchEmail("c:\\tomcat6\\kccb\\encrypted\\", contactService.getAllContacts());
